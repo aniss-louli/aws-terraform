@@ -1,14 +1,15 @@
 ## Sur la VM hébergée sur AWS
 ~~~~
-* sudo apt install nginx 
+ubuntu@:~$ sudo apt install nginx
 
-* systemctl status nginx 
+
+ubuntu@:~$ systemctl status nginx 
 
    ●  nginx.service - A high performance web server and a reverse proxy server  
    Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: en  
    Active: active (running) since   
 
-* curl localhost
+ubuntu@:~$ curl localhost
 
 <!DOCTYPE html>
 <html>
