@@ -1,21 +1,21 @@
-#Sur la VM hébergée sur AWS
+## Sur la VM hébergée sur AWS
 
-sudo apt install nginx 
+* sudo apt install nginx 
 
-systemctl status nginx 
+* systemctl status nginx 
 
-●  nginx.service - A high performance web server and a reverse proxy server  
+   ●  nginx.service - A high performance web server and a reverse proxy server  
    Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: en  
    Active: active (running) since   
 
-curl localhost
+* curl localhost
+
 <!DOCTYPE html>
 <html>
 <head>
-<title>Welcome to nginx!</title>   
-   
+<title>Welcome to nginx!</title>
 
-#Sur la console AWS
+## Sur la console AWS
 
 Aller dans Groupes de sécurité  
 Choisir le groupe  
