@@ -1,5 +1,5 @@
 ## Sur la VM hébergée sur AWS
-
+~~~~
 * sudo apt install nginx 
 
 * systemctl status nginx 
@@ -14,7 +14,7 @@
 <html>
 <head>
 <title>Welcome to nginx!</title>
-
+~~~~
 ## Sur la console AWS
 
 Aller dans Groupes de sécurité  
