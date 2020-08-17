@@ -1,3 +1,5 @@
+Sur la VM hébergée sur AWS
+
 sudo apt install nginx 
 
 systemctl status nginx 
@@ -10,25 +12,12 @@ curl localhost
 <html>
 <head>
 <title>Welcome to nginx!</title>
-<style>
-    body {
-        width: 35em;
-        margin: 0 auto;
-        font-family: Tahoma, Verdana, Arial, sans-serif;
-    }
-</style>
-</head>
-<body>
-<h1>Welcome to nginx!</h1>
-<p>If you see this page, the nginx web server is successfully installed and
-working. Further configuration is required.</p>
 
-<p>For online documentation and support please refer to
-<a href="http://nginx.org/">nginx.org</a>.<br/>
-Commercial support is available at
-<a href="http://nginx.com/">nginx.com</a>.</p>
+Sur la console AWS
 
-<p><em>Thank you for using nginx.</em></p>
-</body>
-</html>
-
+Aller dans Groupes de sécurité
+Choisir le groupe
+Cliquer sur Modifier les règles entrantes
+Ajouter HTTP - TCP - Port 80 - Source 0.0.0.0/0
+On peut maintenant atteindre le serveur web installé sur la VM à l'adresse :
+ec2-54-224-112-80.compute-1.amazonaws.com
