@@ -49,5 +49,5 @@ On créé une règle entrante pour la 2eme VM permettant la communication
 Ajouter Tout le trafic - Tous - Tout les ports - Source 172.31.81.50/0 
 
 On créé une règle entrante pour afficher le wordpress depuis l extérieur 
-Ajouter HTTP - TCP - Port 80 - Source 0.0.0.0/0
+Ajouter HTTP - TCP - Port 80 - Source 0.0.0.0/0  
 On peut maintenant atteindre le site 
