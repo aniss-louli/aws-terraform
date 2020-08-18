@@ -5,7 +5,7 @@ Après avoir créer la VM sur AWS on se connecte dessus
 ubuntu@ip-172-31-81-50:~$ sudo apt update && sudo apt upgrade -y
 ubuntu@ip-172-31-81-50:~$ sudo apt install apache2 -y
 ubuntu@ip-172-31-81-50:~$ sudo apt install php -y
-ubuntu@ip-172-31-81-50:~$ sudo apt install php7.2-bz2 php7.2-zip php7.2-xml php7.2-curl php7.2-bz2 php7.2-zip php7.2-xml php7.2-curl 
+ubuntu@ip-172-31-81-50:~$ sudo apt install php7.2-bz2 php7.2-zip php7.2-xml php7.2-curl php7.2-bz2 php7.2-zip php7.2-xml php7.2-curl php-mysql
 ubuntu@ip-172-31-81-50:~$ cd /tmp
 ubuntu@ip-172-31-81-50:/tmp$ wget https://wordpress.org/latest.tar.gz
 ubuntu@ip-172-31-81-50:/tmp$ tar -zxvf latest.tar.gz
@@ -15,7 +15,7 @@ ubuntu@ip-172-31-81-50:/tmp$ cd /var/www/html/wordpress
 ubuntu@ip-172-31-81-50:/var/www/html/wordpress$ mv wp-config-sample.php wp-config.php
 ubuntu@ip-172-31-81-50:/var/www/html/wordpress$ vi wp-config.php
 define( 'DB_NAME', 'wordpress' );
-define( 'DB_USER', 'wordpress' );
+define( 'DB_USER', 'ubuntu' );
 define( 'DB_PASSWORD', 'wordpress' );
 define( 'DB_HOST', '172.31.81.106:3306' );
 define( 'DB_CHARSET', 'utf8' );
