@@ -16,7 +16,7 @@ ubuntu@ip-172-31-81-50:/var/www/html/wordpress$ mv wp-config-sample.php wp-confi
 ubuntu@ip-172-31-81-50:/var/www/html/wordpress$ vi wp-config.php
 define( 'DB_NAME', 'wordpress' );
 define( 'DB_USER', 'wordpress' );
-define( 'DB_PASSWORD', 'ubuntu' );
+define( 'DB_PASSWORD', 'wordpress' );
 define( 'DB_HOST', '172.31.81.106:3306' );
 define( 'DB_CHARSET', 'utf8' );
 
@@ -31,9 +31,8 @@ ubuntu@ip-172-31-81-106:~$ sudo apt install mariadb-server -y
 ubuntu@ip-172-31-81-106:~$ sudo mysql_secure_installation
 ubuntu@ip-172-31-81-106:~$ sudo mysql
 CREATE DATABASE wordpress CHARACTER SET UTF8 COLLATE UTF8_BIN;
-CREATE USER 'wordpress'@'%' IDENTIFIED BY 'wordpress';
+CREATE USER 'ubuntu'@'%' IDENTIFIED BY 'wordpress';
 GRANT ALL PRIVILEGES ON wordpress.* TO ubuntu@172.31.81.50 IDENTIFIED by "wordpress";
-GRANT ALL ON *.* TO 'ubuntu'@'172.31.81.50' IDENTIFIED BY 'wordpress' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 
 
