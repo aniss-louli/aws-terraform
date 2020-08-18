@@ -14,11 +14,11 @@ ubuntu@ip-172-31-81-50:/tmp$ sudo chown www-data.www-data /var/www/html/wordpres
 ubuntu@ip-172-31-81-50:/tmp$ cd /var/www/html/wordpress
 ubuntu@ip-172-31-81-50:/var/www/html/wordpress$ mv wp-config-sample.php wp-config.php
 ubuntu@ip-172-31-81-50:/var/www/html/wordpress$ vi wp-config.php
-define( 'DB_NAME', 'wordpress' );
-define( 'DB_USER', 'ubuntu' );
-define( 'DB_PASSWORD', 'wordpress' );
-define( 'DB_HOST', '172.31.81.106:3306' );
-define( 'DB_CHARSET', 'utf8' );
+  define( 'DB_NAME', 'wordpress' );
+  define( 'DB_USER', 'ubuntu' );
+  define( 'DB_PASSWORD', 'wordpress' );
+  define( 'DB_HOST', '172.31.81.106:3306' );
+  define( 'DB_CHARSET', 'utf8' );
 
 
 ~~~~
@@ -50,4 +50,4 @@ Ajouter Tout le trafic - Tous - Tout les ports - Source 172.31.81.50/0
 
 On créé une règle entrante pour afficher le wordpress depuis l extérieur 
 Ajouter HTTP - TCP - Port 80 - Source 0.0.0.0/0
-On peut maintenant atteindre le site http://ec2-3-82-150-12.compute-1.amazonaws.com/wordpress/
+On peut maintenant atteindre le site 
