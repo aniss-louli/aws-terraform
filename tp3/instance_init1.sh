@@ -10,8 +10,8 @@ sudo mv wordpress /var/www/html/
 sudo chown www-data.www-data /var/www/html/wordpress/* -R
 cd /var/www/html/wordpress
 mv wp-config-sample.php wp-config.php
-sed -i -e "s/define( 'DB_NAME', 'database_name_here' )/define( 'DB_NAME', 'wordpress' )/g" wp-config.php 
-sed -i -e "s/define( 'DB_USER', 'username_here' )/define( 'DB_USER', 'ubuntu' )/g" wp-config.php 
-sed -i -e "s/define( 'DB_PASSWORD', 'password_here' )/define( 'DB_PASSWORD', 'wordpress' )/g" wp-config.php 
-sed -i -e "s/define( 'DB_HOST', 'localhost' )/define( 'DB_HOST', '192.168.77.20:3306' )/g" wp-config.php 
+sed -i -e "s/database_name_here/wordpres)/g" wp-config.php 
+sed -i -e "s/username_here)/ubuntu)/g" wp-config.php 
+sed -i -e "s/password_here/wordpress/g" wp-config.php 
+sed -i -e "s/localhost/192.168.77.20:3306/g" wp-config.php 
 sudo systemctl restart apache2
