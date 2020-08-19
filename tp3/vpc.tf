@@ -1,7 +1,7 @@
 # Changer le nom reseau_interne pour un déploiement précis
 # Adapter le réseau
 resource "aws_vpc" "reseau_interne" {
-   cidr_block = "192.168.77.0/24" # RFC 1918, réseau privé
+   cidr_block = "192.168.77.0/24" # réseau privé
 }
 
 # Changer le nom subnet_example pour un déploiement précis
