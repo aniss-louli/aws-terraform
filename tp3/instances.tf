@@ -66,7 +66,7 @@ resource "aws_instance" "Wordpress" {
    subnet_id = aws_subnet.subnet_example.id
    private_ip = "192.168.77.10"
    associate_public_ip_address = "true"
-   user_data = file("/media/backup/aws-terraform/tp3/instance_init1.sh")
+   user_data = file("instance_init1.sh")
    tags = {
      Name = "Wordpress"
    }
@@ -81,7 +81,7 @@ resource "aws_instance" "MariaDB" {
    subnet_id = aws_subnet.subnet_example.id
    private_ip = "192.168.77.20"
    associate_public_ip_address = "true"
-   user_data = file("/media/backup/aws-terraform/tp3/instance_init2.sh")
+   user_data = file("instance_init2.sh")
    tags = {
      Name = "MariaDB"
    }
