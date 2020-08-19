@@ -15,15 +15,15 @@ resource "aws_security_group" "reseau_interne" {
    # autorise communication avec MariaDB
    ingress {
      from_port = "0"
-     to_port   = "65535"
-     protocol  = "all"
+     to_port   = "0" # pour tout les ports
+     protocol  = "-1" # -1 = pour tout les protocoles
      cidr_blocks = [ "192.168.77.20/32" ]
    }
    # autorise communication avec Wordpress
    ingress {
      from_port = "0"
-     to_port   = "65535"
-     protocol  = "all"
+     to_port   = "0"
+     protocol  = "-1"
      cidr_blocks = [ "192.168.77.10/32" ]
    }
    # autorise http de partout
@@ -54,7 +54,7 @@ resource "aws_instance" "MariaDB" {
    # Ubuntu 18.04 fournie par AWS
    ami = "ami-0bcc094591f354be2"
    instance_type = "t2.micro"
-   key_name = "tfkeypair1"
+   key_name = "tfkeypair10"
    vpc_security_group_ids = [ aws_security_group.reseau_interne.id ]
    subnet_id = aws_subnet.subnet_example.id
    private_ip = "192.168.77.20"
