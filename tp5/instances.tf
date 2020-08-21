@@ -32,9 +32,9 @@ resource "aws_instance" "nginx_instance" {
   instance_type               = var.instance_type
   key_name                    = "kp_instances"
   vpc_security_group_ids      = [ aws_security_group.sg_internal.id,
-                                  aws_security_group.nginx_instance.id ]
+                                  aws_security_group.sg_nginx_instance.id ]
   subnet_id                   = aws_subnet.subnet_example.id
-  private_ip                  = var.first_instance_ip
+  private_ip                  = "${var.net_prefix}.${var.nginx_instance_ip}"
   # si nécessaire, une ip publique
   associate_public_ip_address = "true"
   user_data                   = file("init_nginx.sh")
@@ -44,13 +44,13 @@ resource "aws_instance" "nginx_instance" {
 }
 
 resource "aws_instance" "apache_instance" {
-  count = var.apache_instance_count
+  count = var.apache_count
   ami                         = var.amis[var.region] 
-  instance_type               = var.apache_instance_type
+  instance_type               = var.instance_type
   key_name                    = "kp_instances"
   vpc_security_group_ids      = [ aws_security_group.sg_internal.id ]
   subnet_id                   = aws_subnet.subnet_example.id
-  private_ip                  = "${var.net_prefix}.${count.index + 100}"
+  private_ip                  = "${var.net_prefix}.${count.index + 101}"
   # pas d'ip publique... généralement
   associate_public_ip_address = "false"
   # ou bien un init différent (dépend du style de cluster)
@@ -60,12 +60,29 @@ resource "aws_instance" "apache_instance" {
   }
 }
 
-
+resource "aws_instance" "MariaDB" {
+   # Ubuntu 18.04 fournie par AWS
+   ami = "ami-0bcc094591f354be2"
+   instance_type = "t2.micro"
+   key_name = "kp_instances"
+   vpc_security_group_ids = [ aws_security_group.sg_internal.id ]
+   subnet_id = aws_subnet.subnet_example.id
+   private_ip = "${var.net_prefix}.${var.mariadb_instance_ip}"
+   associate_public_ip_address = "true"
+   user_data = file("init_mariadb.sh")
+   tags = {
+     Name = "MariaDB"
+   }
+}
 
 output "nginx_instance_ip" {
   value = "${aws_instance.nginx_instance.*.public_ip}"
 }
 
-output "apache_instances_private_ip" {
+output "apache_instance_private_ip" {
   value = "${aws_instance.apache_instance.*.private_ip}"
+}
+
+output "MariaDB_instance_private_ip" {
+   value = "${aws_instance.MariaDB.*.private_ip}"
 }
