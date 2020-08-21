@@ -28,7 +28,7 @@ resource "aws_security_group" "sg_windows_instance" {
 }
 
 resource "aws_instance" "windows_instance" {
-  ami                         = var.amis[var.region] 
+  ami                         = var.amis[var.region] #ami windows 2008
   instance_type               = var.instance_type
   key_name                    = "kp_instances"
   vpc_security_group_ids      = [ aws_security_group.sg_windows_instance.id ]
