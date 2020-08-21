@@ -1,27 +1,17 @@
-# Update packages and Upgrade system
-sudo apt-get update -y && sudo apt-get upgrade -y
+#!/usr/bin/env bash
 
-## Install AMP
-sudo apt-get install apache2 apache2-doc apache2-mpm-prefork apache2-utils libexpat1 ssl-cert -y
-
-sudo apt-get install libapache2-mod-php5 php5 php5-common php5-curl php5-dev php5-gd php5-idn php-pear php5-imagick php5-mcrypt php5-mysql php5-ps php5-pspell php5-recode php5-xsl -y
-
-sudo apt-get install mysql-server mysql-client libmysqlclient15.dev -y
-
-sudo apt-get install phpmyadmin -y
-
-sudo apt-get install apache2 libapache2-mod-php5 php5 mysql-server php-pear php5-mysql mysql-client mysql-server php5-mysql php5-gd -y
-
-## TWEAKS and Settings
-# Permissions
-
-sudo chown -R www-data:www-data /var/www
-
-# Enabling Mod Rewrite, required for WordPress permalinks and .htaccess files
-
-sudo a2enmod rewrite
-sudo php5enmod mcrypt
-
-# Restart Apache
-
-sudo service apache2 restart
+sudo apt -y update && apt -y upgrade
+sudo apt install apache2 -y
+sudo apt install php php7.2-bz2 php7.2-zip php7.2-xml php7.2-curl php7.2-bz2 php7.2-zip php7.2-xml php7.2-curl php-mysql -y
+cd /tmp
+wget https://wordpress.org/latest.tar.gz
+tar -zxvf latest.tar.gz
+sudo mv wordpress /var/www/html/
+sudo chown www-data.www-data /var/www/html/wordpress/* -R
+cd /var/www/html/wordpress
+mv wp-config-sample.php wp-config.php
+sed -i -e "s/database_name_here/wordpres)/g" wp-config.php 
+sed -i -e "s/username_here)/ubuntu)/g" wp-config.php 
+sed -i -e "s/password_here/wordpress/g" wp-config.php 
+sed -i -e "s/localhost/192.168.0.20:3306/g" wp-config.php 
+sudo systemctl restart apache2
