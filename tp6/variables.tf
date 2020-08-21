@@ -21,6 +21,6 @@ variable "instance_type" {
 variable "amis" {
   type = map
   default = {
-    "us-east-1" = "ami-0bcc094591f354be2"
+    "us-east-1" = "ami-1e542176"
   }
 }
