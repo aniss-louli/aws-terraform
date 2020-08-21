@@ -7,15 +7,19 @@ variable "subnet" {
 }
 
 variable "bastion_ip" {
-   default = "192.168.0.254/24"
+   default = "192.168.0.254"
 }
 
 variable "net_prefix" {
-   default = "192.168.0.0/24"
+   default = "192.168.0"
 }
 
-variable "first_instance_ip" {
-   default = "192.168.0.10/24"
+variable "nginx_instance_ip" {
+   default = "10"
+}
+
+variable "mariadb_instance_ip" {
+   default = "20"
 }
 
 variable "bastion_type" {
@@ -31,7 +35,7 @@ variable "node_type" {
 }
 
 variable "apache_count" {
-   default = 0
+   default = 5
 }
 
 variable "amis" {
