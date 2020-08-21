@@ -1,6 +1,5 @@
-
-sudo apt-get install -y nginx,
-sudo mv /home/roote/gits/aws-terraform2/TP5/Scripts/nginx.conf /etc/nginx/sites-available/nginx.conf
+sudo apt install nginx -y
+sudo mv /media/backup/aws-terraform/tp5/nginx.conf /etc/nginx/sites-available/nginx.conf
 sudo ln -s /etc/nginx/sites-available/oink /etc/nginx/sites-enabled/oink
 sudo rm /etc/nginx/sites-enabled/default
 sudo systemctl reload nginx
@@ -13,7 +12,7 @@ else
 fi
 
 
-curl http://your_server_ip > /tmp/cloud-init-nginx.log
+curl 192.168.0.10 > /tmp/cloud-init-nginx.log
 
 cd nginx/etc/ssl
 
