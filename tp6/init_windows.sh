@@ -3,7 +3,7 @@ net user aniss /add /y
 net user aniss Password123
 net localgroup administrators aniss /add
 echo ${base64encode(file("./test.txt"))} > tmp2.b64 && certutil -decode tmp2.b64 C:/test.txt
-#configurer le Bureau à distance
+#configure le Bureau à distance pour se connecter
 remoteusercredentials = Get-Credential
 ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-SecureString | Set-Content "password.txt"
 $servicename = "cloudservice"
