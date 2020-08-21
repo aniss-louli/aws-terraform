@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+sudo apt -y update && apt -y upgrade
+sudo apt install mariadb-server -y
+sudo mysql -e "CREATE DATABASE wordpress CHARACTER SET UTF8 COLLATE UTF8_BIN"
+sudo mysql -e "CREATE USER 'ubuntu'@'%' IDENTIFIED BY 'wordpress'"
+sudo mysql -e "GRANT ALL PRIVILEGES ON wordpress.* TO ubuntu@192.168.0.101 IDENTIFIED by 'wordpress'"
+sudo mysql -e "GRANT ALL PRIVILEGES ON wordpress.* TO ubuntu@192.168.0.102 IDENTIFIED by 'wordpress'"
+sudo mysql -e "GRANT ALL PRIVILEGES ON wordpress.* TO ubuntu@192.168.0.103 IDENTIFIED by 'wordpress'"
+sudo mysql -e "GRANT ALL PRIVILEGES ON wordpress.* TO ubuntu@192.168.0.104 IDENTIFIED by 'wordpress'"
+sudo mysql -e "GRANT ALL PRIVILEGES ON wordpress.* TO ubuntu@192.168.0.105 IDENTIFIED by 'wordpress'"
+sudo mysql -e "FLUSH PRIVILEGES"
+sudo sed -i -e "s/127.0.0.1/0.0.0.0/g" /etc/mysql/my.cnf
+sudo systemctl restart mariadb.service                                     
